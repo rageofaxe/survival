@@ -9,6 +9,7 @@ declare global {
 			actions: Action[];
 			items: Item[];
 			size: number;
+			description: string;
 		}
 	
 		export type Map = {
@@ -17,10 +18,10 @@ declare global {
 			areas: Area[]
 		}
 	
-		export type Resource = {
+		export type Resource<T = any[] | number> = {
 			id: number;
 			name: string;
-			volume: number;
+			volume: T;
 		}
 	
 		export type Needs = {
@@ -33,8 +34,9 @@ declare global {
 			name: string;
 			map: Map;
 			completed: boolean;
-			resources: Resource[];
-			needs: Needs[]
+			resources: {[k: Resource["name"]]: Resource}
+			needs: Needs[];
+			isMap: boolean
 		}
 	
 		export type Basket<Kind extends "items" | "actions"> = {
@@ -47,7 +49,7 @@ declare global {
 		export type Action = {
 			id: number;
 			name: string;
-			f?: Function;
+			action?: Function;
 			items?: Item[]
 		}
 	

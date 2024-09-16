@@ -1,5 +1,10 @@
+<script lang="ts">
+	export let resources;
+</script>
+
 <div class="row">
 	<div class="block">
-		<span class="">Satiety: 10 | Vigor: 10 | Temperature: 36.6C</span>
+		<span class="">
+			{resources}
 	</div>
 </div>

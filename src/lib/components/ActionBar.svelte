@@ -1,5 +1,17 @@
+<script lang="ts">
+	export let mission: App.Mission;
+
+	let actions = mission.map.areas[0].actions;
+</script>
+
 <div class="block">
-    <button class="">Go to forest</button>
-    <button class="">Go to Barn</button>
-    <button class="">Look around</button>
+	{#each actions as {name, action}}
+		<button
+			on:click={() => {
+				if (action) {
+					action();
+				}
+			}}>{name}</button
+		>
+	{/each}
 </div>

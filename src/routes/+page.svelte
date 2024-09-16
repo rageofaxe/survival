@@ -1,19 +1,9 @@
-<script>
-	import ActionBar from '$lib/components/ActionBar.svelte';
-import Basket from '$lib/components/Basket.svelte';
-import Description from '$lib/components/Description.svelte';
-import Map from '$lib/components/Map.svelte';
-import StatusBar from '$lib/components/StatusBar.svelte';
+<script lang="ts">
+	import { goto } from '$app/navigation';
+
+	function select() {
+		goto('/game');
+	}
 </script>
 
-<div class="flex">
-	<StatusBar />
-	<div class="row">
-		<Map />
-		<Description />
-	</div>
-	<div class="row">
-		<Basket />
-		<ActionBar />
-	</div>
-</div>
+<button on:click={select}>Hi</button>
