@@ -30,5 +30,9 @@
 		"vite": "^5.0.3",
 		"vitest": "^2.0.0"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"@types/ramda": "^0.30.2",
+		"ramda": "^0.30.1"
+	}
 }

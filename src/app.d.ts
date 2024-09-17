@@ -44,23 +44,23 @@ declare global {
 			name: string;
 			kind: Kind;
 			size: number;
+			items: Item[]
 		}
 	
 		export type Action = {
 			id: number;
 			name: string;
 			action?: Function;
-			items?: Item[]
 		}
 	
 		export type Item = {
-			id: number;
+			id?: number;
 			name: string;
 		}
 	
 		export type Player = {
 			itemBasket: Basket<"items">;
-			actionBasket: Basket<"actions">;
+			// actionBasket: Basket<"actions">;
 			position: Area["id"];
 		}
 	

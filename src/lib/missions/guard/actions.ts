@@ -1,7 +1,8 @@
-import { probability, random } from "$lib/utils"
+import { probability, random, shuffle } from "$lib/utils"
 import { get } from "svelte/store"
-import { mission } from "./store"
+import { mission, player } from "./store"
 import type { Data } from "./types"
+import { init } from "ramda"
 
 const WHITE_MAIL_DISTRIBUTION = 2
 const WHITE_MAIL_PROBABILITY = 20
@@ -53,18 +54,24 @@ export function white() {
 }
 
 export function black() {
-    let headhunters = 1
+    let headhunters = get(player).itemBasket.items
+    let hhSize = headhunters.length
     let money = get(mission).resources["Money"].volume as number
     let volume = get(mission).resources["Data"].volume as Data[]
 
-    if (headhunters) {
-        console.log("HH")
-        volume.filter(user => !user.bm).slice(0, headhunters).forEach(user => {
+    if (hhSize) {
+        volume.filter(user => !user.bm).slice(0, hhSize).forEach(user => {
             console.log(">>>", user)
             user.bm = true
-            money -= 250
+            money -= BLACK_MAIL_COST
             if (probability(10)) {
-                headhunters -= 1
+                player.update(p => ({
+                    ...p,
+                    itemBasket: {
+                        ...p.itemBasket,
+                        items: init(headhunters)
+                    }
+                }))
             }
             if (user.isBM) {
                 money += 1000
@@ -83,5 +90,17 @@ export function black() {
             }
         }))
 
+    }
+}
+
+export function hiring() {
+    if (probability(HIRING_PROBABILITY)) {
+        player.update(p => ({
+            ...p,
+            itemBasket: {
+                ...p.itemBasket,
+                items: p.itemBasket.items.length < p.itemBasket.size ? [...p.itemBasket.items, {name: shuffle(["!", "@", "#", "$", "%"])[0]}] : p.itemBasket.items
+            }
+        }))
     }
 }
