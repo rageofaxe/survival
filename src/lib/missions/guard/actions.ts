@@ -10,7 +10,7 @@ const BLACK_MAIL_DISTRIBUTION = 40
 const HIRING_PROBABILITY = 10
 const BLACK_MAIL_COST = 250
 
-export function collect() {
+export function collect(time: number) {
     let newData: Data[] = [...Array(random(10, 100))].map((x, i) => i).map((x) => ({
         isWM: probability(WHITE_MAIL_DISTRIBUTION),
         isBM: probability(BLACK_MAIL_DISTRIBUTION),
@@ -28,11 +28,12 @@ export function collect() {
                 ...state.resources["Data"],
                 volume: [...state.resources["Data"].volume as Data[], ...newData]
             } as App.Resource<Data[]>
-        }
+        },
+        time: state.time + time
     }))
 }
 
-export function white() {
+export function white(time: number) {
     let money = get(mission).resources["Money"].volume as number
     let data = get(mission).resources["Data"].volume as Data[]
     let volume = data.map((user) => {
@@ -49,11 +50,12 @@ export function white() {
             ...state.resources,
             "Data": { ...state.resources["Data"], volume },
             "Money": { ...state.resources["Money"], volume: money },
-        }
+        },
+        time: state.time + time
     }))
 }
 
-export function black() {
+export function black(time: number) {
     let headhunters = get(player).itemBasket.items
     let hhSize = headhunters.length
     let money = get(mission).resources["Money"].volume as number
@@ -87,13 +89,14 @@ export function black() {
                     volume
                 },
                 "Money": { ...state.resources["Money"], volume: money },
-            }
+            },
+            time: state.time + time
         }))
 
     }
 }
 
-export function hiring() {
+export function hiring(time: number) {
     if (probability(HIRING_PROBABILITY)) {
         player.update(p => ({
             ...p,
@@ -103,4 +106,8 @@ export function hiring() {
             }
         }))
     }
+    mission.update(state => {
+        state.time += time
+        return state
+    })
 }
