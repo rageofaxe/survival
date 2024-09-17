@@ -20,16 +20,10 @@ export function collect() {
         infoForBM: null
     }))
 
-    mission.update(state => ({
-        ...state,
-        resources: {
-            ...state.resources,
-            "Data": {
-                ...state.resources["Data"],
-                volume: [...state.resources["Data"].volume as Data[], ...newData]
-            } as App.Resource<Data[]>
-        }
-    }))
+    mission.update(state => {
+        state.resources["Data"].volume = [...state.resources["Data"].volume as Data[], ...newData]
+        return state
+    })
 }
 
 export function white() {
