@@ -1,5 +1,5 @@
 <script>
-	import { derived } from 'svelte/store';
+	import { derived, get } from 'svelte/store';
 	import ActionBar from '$lib/components/ActionBar.svelte';
 	import Basket from '$lib/components/Basket.svelte';
 	import Description from '$lib/components/Description.svelte';
@@ -15,10 +15,12 @@
 		.map((resource) => `${resource.name}: ${typeof resource.volume === "number" ? resource.volume : resource.volume.length}`)
 		.join(" | ")
 	)
+
+	let time = derived(mission, (mission) => `${Math.floor(mission.time / 8)} / ${mission.time % 8}`)
 </script>
 
 <div class="flex">
-	<StatusBar resources={$resources} />
+	<StatusBar resources={$resources} time={$time} />
 	<div class="row">
 		<Map mission={$mission} />
 		<Description text={$mission.map.areas[0].description} />

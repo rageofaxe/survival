@@ -33,22 +33,22 @@ export const mission = writable<App.Mission>({
         {
           id: 1,
           name: "Collect data",
-          action: collect,
+          action: () => collect(4),
         },
         {
           id: 2,
           name: "White mail",
-          action: white,
+          action: () => white(2),
         },
         {
           id: 3,
           name: "Black mail",
-          action: black,
+          action: () => black(4),
         },
         {
           id: 4,
           name: "Hiring",
-          action: hiring,
+          action: () => hiring(6),
         },
       ],
     }],
@@ -56,6 +56,7 @@ export const mission = writable<App.Mission>({
   needs: [],
   resources,
   isMap: false,
+  time: 0
 });
 
 export const player = writable<App.Player>({

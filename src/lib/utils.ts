@@ -27,3 +27,10 @@ export const random = (min: number, max: number) => {
       }
       return false
   }
+
+export const sub = (min: number, sub: number) => {
+  if (min - sub >= 0) {
+    return min - sub
+  }
+  return null
+}

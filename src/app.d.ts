@@ -11,34 +11,35 @@ declare global {
 			size: number;
 			description: string;
 		}
-	
+
 		export type Map = {
 			id: number;
 			name: string;
 			areas: Area[]
 		}
-	
+
 		export type Resource<T = any[] | number> = {
 			id: number;
 			name: string;
 			volume: T;
 		}
-	
+
 		export type Needs = {
 			id: number;
 			name: string;
 		}
-	
+
 		export type Mission = {
 			id: number;
 			name: string;
 			map: Map;
 			completed: boolean;
-			resources: {[k: Resource["name"]]: Resource}
+			resources: { [k: Resource["name"]]: Resource }
 			needs: Needs[];
-			isMap: boolean
+			isMap: boolean;
+			time: number;
 		}
-	
+
 		export type Basket<Kind extends "items" | "actions"> = {
 			id: number;
 			name: string;
@@ -46,30 +47,24 @@ declare global {
 			size: number;
 			items: Item[]
 		}
-	
+
 		export type Action = {
 			id: number;
 			name: string;
 			action?: Function;
 		}
-	
+
 		export type Item = {
 			id?: number;
 			name: string;
 		}
-	
+
 		export type Player = {
 			itemBasket: Basket<"items">;
 			// actionBasket: Basket<"actions">;
 			position: Area["id"];
 		}
-	
-		export type Game = {
-			mission: Mission;
-			time: [number, number]
-			players: Player[]
-		}
 	}
 }
 
-export {};
+export { };
