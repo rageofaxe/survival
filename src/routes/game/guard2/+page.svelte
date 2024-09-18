@@ -11,7 +11,6 @@
 	<div class="flex">
 		<StatusBar />
 		<div class="row">
-			<!-- <Map /> -->
 			<Description />
 		</div>
 		<div class="row">

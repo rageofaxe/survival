@@ -10,6 +10,7 @@ declare global {
 			items: Item[];
 			size: number;
 			description: string;
+			ascii?: string;
 		}
 
 		export type Map = {

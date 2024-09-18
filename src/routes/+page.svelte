@@ -3,26 +3,31 @@
 	import { load } from '$lib/current-game/game';
 	import * as guard from '$lib/missions/guard/store';
 	import * as guard2 from '$lib/missions/guard2/store';
-	import { tick } from 'svelte';
+	import * as easyWalk from '$lib/missions/easy-walk/store';
 
-	async function selectGuard() {
+	function selectGuard() {
 		const {player, mission} = guard
 		load(player, mission)
-		tick()
-		await goto('/game/guard');
+		goto('/game/guard');
 	}
 
-	async function selectGuard2() {
+	function selectGuard2() {
 		const {player, mission} = guard2
 		load(player, mission)
-		tick()
-		await goto('/game/guard2');
+		goto('/game/guard2');
+	}
+
+	function selectEasyWalk() {
+		const {player, mission} = easyWalk
+		load(player, mission)
+		goto('/game/01-easy-walk');
 	}
 </script>
 
 <div class="container">
 	<button on:click={selectGuard}>Guard</button>
 	<button on:click={selectGuard2}>Guard2</button>
+	<button on:click={selectEasyWalk}>Easy walk</button>
 </div>
 
 <style>

@@ -1,7 +1,9 @@
 <script lang="ts">
-	export let mission: App.Mission;
 
-	let actions = mission.map.areas[0].actions;
+	import {mission, player} from "$lib/current-game/game"
+
+	let position = $player.position
+	let actions = $mission.map.areas[position].actions;
 </script>
 
 <div class="block">
