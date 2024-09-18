@@ -8,12 +8,6 @@ const resources = {
 
 const description1 = `1. Collect data
 2. White mail
-3. Black mail 
-    1. Send initial letter (first 10 users)
-    2. Call HH or take money (100% / 0%)
-    3. Send second letter
-    4. Call HH or take money (60% / 40%)
-5. You can reach 50k in 1 year
 `;
 
 export const mission = writable<App.Mission>({

@@ -1,31 +1,30 @@
 <script>
-	import ActionBar from '$lib/components/ActionBar.svelte';
 	import Basket from '$lib/components/Basket.svelte';
 	import Description from '$lib/components/Description.svelte';
-	import Map from '$lib/components/Map.svelte';
 	import StatusBar from '$lib/components/StatusBar.svelte';
-
-	import missions from '$lib/missions';
-
-	let mission = missions['guard'];
+	import LoopController from '$lib/components/LoopController.svelte';
+	import ActionBar2 from '$lib/components/ActionBar2.svelte';
+	import ActionBasket from '$lib/components/ActionBasketUI.svelte';
 </script>
 
 <div class="container">
 	<div class="flex">
 		<StatusBar />
 		<div class="row">
-			<Map />
+			<!-- <Map /> -->
 			<Description />
 		</div>
 		<div class="row">
 			<Basket />
-			<ActionBar mission={$mission} />
+			<ActionBasket />
+			<ActionBar2 />
 		</div>
+		<LoopController />
 	</div>
 </div>
 
 <style>
 	.container {
-		padding: 2rem
+		padding: 2rem;
 	}
 </style>

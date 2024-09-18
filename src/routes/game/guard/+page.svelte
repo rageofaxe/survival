@@ -16,8 +16,8 @@
 	<div class="flex">
 		<StatusBar />
 		<div class="row">
-			<Map mission={$mission} />
-			<Description text={$mission.map.areas[0].description} />
+			<Map />
+			<Description />
 		</div>
 		<div class="row">
 			<Basket />

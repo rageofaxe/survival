@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { player } from '$lib/missions/guard/store';
+	import { player } from '$lib/current-game/game';
 	import { derived } from 'svelte/store';
 
 	let basket = derived(player, (p) => p.actionBasket as App.BasketAction);

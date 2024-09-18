@@ -1,17 +1,14 @@
 <script lang="ts">
-	export let mission: App.Mission;
 </script>
 
-{#if mission.isMap}
-	<div class="block map">
-		<span class="l">MAP</span>
-	</div>
-{/if}
+<div class="block map">
+	<span class="l">MAP</span>
+</div>
 
 <style>
 	.map {
 		width: 66vw;
-		height: 60vh;
+		height: 30vh;
 		flex: 2;
 	}
 </style>

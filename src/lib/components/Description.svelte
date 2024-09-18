@@ -1,5 +1,8 @@
 <script lang="ts">
-	export let text;
+	import { mission, player } from '$lib/current-game/game';
+
+	let position = $player.position
+	$: text = $mission.map.areas[position]?.description
 </script>
 
 <div class="block">

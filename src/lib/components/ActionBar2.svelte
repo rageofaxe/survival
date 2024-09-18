@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { mission, player } from '$lib/missions/guard/store';
+	import { mission, player } from '$lib/current-game/game';
 	import { tail } from 'ramda';
 	import { derived } from 'svelte/store';
 

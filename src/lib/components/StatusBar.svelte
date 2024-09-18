@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { mission } from "$lib/missions/guard/store";
+	import { mission } from "$lib/current-game/game";
 	import { derived } from "svelte/store";
 
 	let resources = derived(mission, (mission) =>
