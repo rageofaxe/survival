@@ -56,7 +56,7 @@ export const mission = writable<App.Mission>({
   needs: [],
   resources,
   isMap: false,
-  time: 0
+  time: 0,
 });
 
 export const player = writable<App.Player>({
@@ -68,4 +68,9 @@ export const player = writable<App.Player>({
     items: [],
   },
   position: 1,
+  actionBasket: {
+    name: "Actions",
+    size: 2,
+    actions: [],
+  },
 });

@@ -1,11 +1,24 @@
 <script lang="ts">
-	export let resources;
-	export let time: string = "";
+	import { mission } from "$lib/missions/guard/store";
+	import { derived } from "svelte/store";
+
+	let resources = derived(mission, (mission) =>
+		Object.values(mission.resources)
+			.map(
+				(resource) =>
+					`${resource.name}: ${
+						typeof resource.volume === 'number' ? resource.volume : resource.volume.length
+					}`
+			)
+			.join(' | ')
+	);
+
+	let time = derived(mission, (mission) => `${Math.floor(mission.time / 8)}D ${mission.time % 8}H`);
 </script>
 
 <div class="row">
 	<div class="block">
-		<span class="">{resources}</span>
-		<span class="">{time}</span>
+		<span class="">{$resources}</span>
+		<span class="">{$time}</span>
 	</div>
 </div>

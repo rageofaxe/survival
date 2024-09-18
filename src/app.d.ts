@@ -48,6 +48,13 @@ declare global {
 			items: Item[]
 		}
 
+		export type BasketAction = {
+			id?: number;
+			name: string;
+			size: number;
+			actions: Action[]
+		}
+
 		export type Action = {
 			id: number;
 			name: string;
@@ -61,7 +68,7 @@ declare global {
 
 		export type Player = {
 			itemBasket: Basket<"items">;
-			// actionBasket: Basket<"actions">;
+			actionBasket?: BasketAction;
 			position: Area["id"];
 		}
 	}
