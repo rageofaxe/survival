@@ -5,17 +5,26 @@
 	import LoopController from '$lib/components/LoopController.svelte';
 	import ActionBar2 from '$lib/components/ActionBar2.svelte';
 	import ActionBasket from '$lib/components/ActionBasketUI.svelte';
-	import { addAction, getActionBasket, getAreaActions, getAreaDescription, getItemBasket, getItemsBasketName, getResources, getTime } from '../../../utils/helper';
+	import {
+		addAction,
+		getActionBasket,
+		getAreaActions,
+		getAreaDescription,
+		getItemBasket,
+		getItemsBasketName,
+		getResources,
+		getTime
+	} from '$lib/utils/helper';
 	import { mission, player } from '$lib/current-game/game';
 
 	let time = getTime(mission);
 	let resources = getResources(mission);
-	let areaDescription = getAreaDescription(mission, player)
-	let itemBasket = getItemBasket(player)
-	let itemsBasketName = getItemsBasketName(player)
-	let actionBasket = getActionBasket(player)
-	let addPlayerAction = addAction(player)
-	let areaActions = getAreaActions(mission)
+	let areaDescription = getAreaDescription(mission, player);
+	let itemBasket = getItemBasket(player);
+	let itemsBasketName = getItemsBasketName(player);
+	let actionBasket = getActionBasket(player);
+	let addPlayerAction = addAction(player);
+	let areaActions = getAreaActions(mission);
 </script>
 
 <div class="container">
@@ -27,7 +36,7 @@
 		<div class="row">
 			<Basket {itemBasket} {itemsBasketName} />
 			<ActionBasket {actionBasket} />
-			<ActionBar2 addAction={addPlayerAction}  {areaActions} />
+			<ActionBar2 addAction={addPlayerAction} {areaActions} />
 		</div>
 		<LoopController />
 	</div>

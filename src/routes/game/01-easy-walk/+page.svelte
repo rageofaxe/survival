@@ -4,19 +4,25 @@
 	import StatusBar from '$lib/components/StatusBar.svelte';
 	import LoopController from '$lib/components/LoopController.svelte';
 	import ActionBar from '$lib/components/ActionBar.svelte';
-	
+
 	import Ascii from '$lib/components/Ascii.svelte';
-	import { addAction, getActionBasket, getAreaActions, getAreaDescription, getItemBasket, getItemsBasketName, getResources, getTime } from '../../../utils/helper';
+	import {
+		addAction,
+		getActionBasket,
+		getAreaActions,
+		getAreaDescription,
+		getItemBasket,
+		getItemsBasketName,
+		getResources,
+		getTime
+	} from '$lib/utils/helper';
 	import { mission, player } from '$lib/current-game/game';
 
 	let time = getTime(mission);
 	let resources = getResources(mission);
-	let areaDescription = getAreaDescription(mission, player)
-	let itemBasket = getItemBasket(player)
-	let itemsBasketName = getItemsBasketName(player)
-	let actionBasket = getActionBasket(player)
-	let addPlayerAction = addAction(player)
-	let areaActions = getAreaActions(mission)
+	let areaDescription = getAreaDescription(mission, player);
+	let itemBasket = getItemBasket(player);
+	let itemsBasketName = getItemsBasketName(player);
 </script>
 
 <div class="container">
