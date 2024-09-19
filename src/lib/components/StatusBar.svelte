@@ -1,23 +1,12 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import { mission } from '$lib/current-game/game';
-	import { derived } from 'svelte/store';
+	import { type Readable } from 'svelte/store';
 
-	let resources = derived(mission, (mission) =>
-		Object.values(mission.resources)
-			.map(
-				(resource) =>
-					`${resource.name}: ${
-						typeof resource.volume === 'number' ? resource.volume : resource.volume.length
-					}`
-			)
-			.join(' | ')
-	);
-
-	let time = derived(mission, (mission) => `${Math.floor(mission.time / 8)}D ${mission.time % 8}H`);
+	export let time: Readable<string>;
+	export let resources: Readable<string>;
 
 	function quit() {
-		goto("/")
+		goto('/');
 	}
 </script>
 

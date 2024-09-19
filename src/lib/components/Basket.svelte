@@ -1,18 +1,14 @@
 <script lang="ts">
-	import { player } from "$lib/current-game/game";
-	import { derived } from "svelte/store";
+	import { type Readable } from "svelte/store";
 
-    const CELL: App.Item = {id: -1, name: ""}
-
-    let items = derived(player, (player) => player.itemBasket.items)
-    let basketSize = $player.itemBasket.size
-    $: basket = [...$items, ...[...Array(basketSize)].map(_ => CELL).slice($items.length)]
+    export let itemBasket:Readable<App.Item[]>;
+    export let itemsBasketName: Readable<string>;
 </script>
 
 <div class="block">
-    <span class="l">{$player.itemBasket.name}</span>
+    <span class="l">{$itemsBasketName}</span>
     <div class="row-1">
-        {#each basket as cell}
+        {#each $itemBasket as cell}
             <div class="cell">
                 <span>{cell.name}</span>
             </div>    

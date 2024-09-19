@@ -1,26 +1,12 @@
 <script lang="ts">
-	import { mission, player } from '$lib/current-game/game';
-	import { tail } from 'ramda';
-	import { derived } from 'svelte/store';
+	import { type Readable } from 'svelte/store';
 
-	let actions = derived(mission, (m) => m.map.areas[0].actions);
-
-	function addAction(action: App.Action) {
-		player.update((p) => {
-			if (p.actionBasket) {
-				if (p.actionBasket.actions.length < p.actionBasket.size) {
-					p.actionBasket.actions = [...p.actionBasket.actions, action];
-				} else {
-					p.actionBasket.actions = [...tail(p.actionBasket.actions), action];
-				}
-			}
-			return p;
-		});
-	}
+	export let areaActions: Readable<App.Area['actions']>;
+	export let addAction: (action: App.Action) => void;
 </script>
 
 <div class="block">
-	{#each $actions as a}
+	{#each $areaActions as a}
 		<button
 			on:click={() => {
 				if (a.action) {
