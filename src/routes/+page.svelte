@@ -6,20 +6,20 @@
 	import * as easyWalk from '$lib/missions/easy-walk/store';
 
 	function selectGuard() {
-		const {player, mission} = guard
-		load(player, mission)
+		const { player, mission } = guard;
+		load(player, mission);
 		goto('/game/guard');
 	}
 
 	function selectGuard2() {
-		const {player, mission} = guard2
-		load(player, mission)
+		const { player, mission } = guard2;
+		load(player, mission);
 		goto('/game/guard2');
 	}
 
 	function selectEasyWalk() {
-		const {player, mission} = easyWalk
-		load(player, mission)
+		const { player, mission } = easyWalk;
+		load(player, mission);
 		goto('/game/01-easy-walk');
 	}
 </script>
@@ -39,6 +39,6 @@
 		justify-content: center;
 		box-sizing: content-box;
 		flex-direction: column;
-		gap: 1rem
+		gap: 1rem;
 	}
 </style>
