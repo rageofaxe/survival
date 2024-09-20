@@ -1,9 +1,10 @@
-import { writable } from "svelte/store";
-import { black, collect, hiring, white } from "./actions";
+import { type Writable, writable } from "svelte/store";
+import { black, collect, individualHiring, white } from "./actions";
 
 const resources = {
   "Data": { id: 1, name: "Data", volume: [] },
   "Money": { id: 2, name: "Money", volume: 0 },
+  "Headhunters": { id: 3, name: "HH", volume: 0 }
 };
 
 const description1 = `1. Collect data
@@ -26,24 +27,46 @@ export const mission = writable<App.Mission>({
       size: 1,
       actions: [
         {
-          id: 1,
-          name: "Collect data",
-          action: () => collect(4),
-        },
-        {
           id: 2,
           name: "White mail",
-          action: () => white(2),
+          time: 2,
+          action: () => white(),
         },
         {
           id: 3,
           name: "Black mail",
-          action: () => black(4),
-        },
+          time: 4,
+          action: (player: Writable<App.Player>) => black(player),
+        }
+      ],
+    }, {
+      id: 2,
+      name: "WiFi Club",
+      description: description1,
+      items: [],
+      links: [],
+      size: 1,
+      actions: [
         {
           id: 4,
           name: "Hiring",
-          action: () => hiring(6),
+          time: 6,
+          action: (player: Writable<App.Player>) => individualHiring(player),
+        },
+      ],
+    }, {
+      id: 3,
+      name: "WiFi Club",
+      description: description1,
+      items: [],
+      links: [],
+      size: 1,
+      actions: [
+        {
+          id: 1,
+          name: "Collect data",
+          time: 4,
+          action: (player: Writable<App.Player>) => collect(player),
         },
       ],
     }],
@@ -54,7 +77,25 @@ export const mission = writable<App.Mission>({
   time: 0,
 });
 
-export const player = writable<App.Player>({
+export const player1 = writable<App.Player>({
+  itemBasket: {
+    id: 1,
+    kind: "items",
+    name: "Headhunters",
+    size: 6,
+    items: [],
+  },
+  position: 2,
+  actionBasket: {
+    name: "Actions",
+    size: 2,
+    actions: [],
+  },
+  name: "DataDudes",
+  money: 0
+});
+
+export const player2 = writable<App.Player>({
   itemBasket: {
     id: 1,
     kind: "items",
@@ -68,4 +109,25 @@ export const player = writable<App.Player>({
     size: 2,
     actions: [],
   },
+  name: "Head",
+  money: 0,
+  result: 0
+});
+
+export const player3 = writable<App.Player>({
+  itemBasket: {
+    id: 1,
+    kind: "items",
+    name: "Headhunters",
+    size: 6,
+    items: [],
+  },
+  position: 1,
+  actionBasket: {
+    name: "Actions",
+    size: 2,
+    actions: [],
+  },
+  name: "HR",
+  money: 0
 });

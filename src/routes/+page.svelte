@@ -12,8 +12,8 @@
 	}
 
 	function selectGuard2() {
-		const { player, mission } = guard2;
-		load(player, mission);
+		const { player1, mission } = guard2;
+		load(player1, mission);
 		goto('/game/guard2');
 	}
 

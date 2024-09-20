@@ -23,7 +23,7 @@ export const getItemBasket = (player: Writable<App.Player>): Readable<App.Item[]
 export const getItemsBasketName = (player: Writable<App.Player>): Readable<string> => derived(player, (player) => player.itemBasket.name)
 export const getActionBasket = (player: Writable<App.Player>) => derived(player, (p) => p.actionBasket as App.BasketAction);
 
-export const getAreaActions = (mission: Writable<App.Mission>) => derived(mission, (m) => m.map.areas[0].actions);
+export const getAreaActions = (mission: Writable<App.Mission>, player: Writable<App.Player>) => derived([mission, player], ([m, p]) => m.map.areas[p.position].actions);
 
 export const addAction = (player: Writable<App.Player>) => (action: App.Action) => {
     player.update((p) => {

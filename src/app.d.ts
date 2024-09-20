@@ -60,6 +60,7 @@ declare global {
 			id: number;
 			name: string;
 			action?: Function;
+			time?: number;
 		}
 
 		export type Item = {
@@ -71,6 +72,9 @@ declare global {
 			itemBasket: Basket<"items">;
 			actionBasket?: BasketAction;
 			position: Area["id"];
+			name: string;
+			money: number;
+			result?: number;
 		}
 	}
 }

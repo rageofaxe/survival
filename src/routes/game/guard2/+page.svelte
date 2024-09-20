@@ -15,16 +15,27 @@
 		getResources,
 		getTime
 	} from '$lib/utils/helper';
-	import { mission, player } from '$lib/current-game/game';
+	import { mission } from '$lib/current-game/game';
+	import { player1, player2 as headPlayer, player3 } from '$lib/missions/guard2/store'
+	import MultiPoolController from '$lib/components/MultiPoolController.svelte';
+	import UserCard from '$lib/components/UserCard.svelte';
 
 	let time = getTime(mission);
 	let resources = getResources(mission);
-	let areaDescription = getAreaDescription(mission, player);
-	let itemBasket = getItemBasket(player);
-	let itemsBasketName = getItemsBasketName(player);
-	let actionBasket = getActionBasket(player);
-	let addPlayerAction = addAction(player);
-	let areaActions = getAreaActions(mission);
+	let areaDescription = getAreaDescription(mission, player1);
+	
+	let areaActions1 = getAreaActions(mission, player1);
+	let actionBasket1 = getActionBasket(player1);
+	let addPlayerAction1 = addAction(player1);
+
+	let areaActions2 = getAreaActions(mission, headPlayer);
+	let actionBasket2 = getActionBasket(headPlayer);
+	let addPlayerAction2 = addAction(headPlayer);
+
+	let actionBasket3 = getActionBasket(player3);
+	let addPlayerAction3 = addAction(player3);
+	let areaActions3 = getAreaActions(mission, player3);
+	
 </script>
 
 <div class="container">
@@ -33,12 +44,24 @@
 		<div class="row">
 			<Description {areaDescription} />
 		</div>
+		
 		<div class="row">
-			<Basket {itemBasket} {itemsBasketName} />
-			<ActionBasket {actionBasket} />
-			<ActionBar2 addAction={addPlayerAction} {areaActions} />
+			<UserCard player={headPlayer} />
+			<ActionBasket actionBasket={actionBasket2} />
+			<ActionBar2 addAction={addPlayerAction2} areaActions={areaActions2} />
 		</div>
-		<LoopController />
+		<div class="row">
+			<UserCard player={player1} />
+			<ActionBasket actionBasket={actionBasket1} />
+			<ActionBar2 addAction={addPlayerAction1} areaActions={areaActions1} />
+		</div>
+		
+		<div class="row">
+			<UserCard player={player3} />
+			<ActionBasket actionBasket={actionBasket3} />
+			<ActionBar2 addAction={addPlayerAction3} areaActions={areaActions3} />
+		</div>
+		<MultiPoolController mission={mission} players={[player1, headPlayer, player3]} />
 	</div>
 </div>
 

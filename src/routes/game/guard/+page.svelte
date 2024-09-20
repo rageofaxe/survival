@@ -32,7 +32,7 @@
 	let itemsBasketName = getItemsBasketName(player);
 	let actionBasket = getActionBasket(player);
 	let addPlayerAction = addAction(player);
-	let areaActions = getAreaActions(mission);
+	let areaActions = getAreaActions(mission, player);
 </script>
 
 <div class="container">
