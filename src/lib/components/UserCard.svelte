@@ -9,7 +9,7 @@
     <span class="m">{$player.name}</span>
     <span class="">Money: {$money}</span>
     {#if $result}
-        <span class="">Result: {$result}</span>
+        <span class="">Result: {$result} ({$result * 250})</span>
     {/if}
 </div>
 
