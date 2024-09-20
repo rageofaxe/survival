@@ -39,13 +39,18 @@ export function collect(player: Writable<App.Player>) {
   });
 }
 
-export function white() {
+export function white(player: Writable<App.Player>) {
   let money = get(mission).resources["Money"].volume as number;
   let data = get(mission).resources["Data"].volume as Data[];
   let volume = data.map((user) => {
     if (probability(WHITE_MAIL_PROBABILITY) && user.isWM && !user.wm) {
       user.wm = true;
-      money += [5, 10, 20, 30][random(0, 3)];
+      let salary = [5, 10, 20, 30][random(0, 3)]
+      money += salary;
+      player.update((p) => {
+        p.money += salary;
+        return p;
+      });
     }
     return user;
   });
@@ -129,6 +134,7 @@ export function individualHiring(player: Writable<App.Player>) {
     });
     player.update((p) => {
       p.money += salary;
+      (p.result as number) += 1;
       return p;
     });
   }

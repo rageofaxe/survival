@@ -30,7 +30,7 @@ export const mission = writable<App.Mission>({
           id: 2,
           name: "White mail",
           time: 2,
-          action: () => white(),
+          action: (player: Writable<App.Player>) => white(player),
         },
         {
           id: 3,
@@ -129,5 +129,6 @@ export const player3 = writable<App.Player>({
     actions: [],
   },
   name: "HR",
-  money: 0
+  money: 0,
+  result: 0 
 });
