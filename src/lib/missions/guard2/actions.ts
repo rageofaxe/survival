@@ -2,7 +2,6 @@ import { probability, random, shuffle, sub } from '$lib/utils';
 import { get, type Writable } from 'svelte/store';
 import { mission, player } from '$lib/current-game/game';
 import type { Data } from './types';
-import { init } from 'ramda';
 
 const WHITE_MAIL_DISTRIBUTION = 2;
 const WHITE_MAIL_PROBABILITY = 20;
@@ -10,6 +9,8 @@ const BLACK_MAIL_DISTRIBUTION = 40;
 const HIRING_PROBABILITY = 10;
 const BLACK_MAIL_COST = 250;
 const SALARY = 875;
+
+const DD_SALARY = 15;
 
 export function collect(player: Writable<App.Player>) {
 	let newData: Data[] = [...Array(random(10, 100))]
@@ -26,9 +27,9 @@ export function collect(player: Writable<App.Player>) {
 	mission.update((state) => {
 		state.resources['Data'].volume = [...(state.resources['Data'].volume as Data[]), ...newData];
 		if (state.resources['Data'].volume.length > 500) {
-			(state.resources['Money'].volume as number) -= 15;
+			(state.resources['Money'].volume as number) -= DD_SALARY;
 			player.update((p) => {
-				p.money += 15;
+				p.money += DD_SALARY;
 				return p;
 			});
 		}

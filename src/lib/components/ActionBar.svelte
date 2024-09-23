@@ -1,19 +1,21 @@
 <script lang="ts">
+	import { derived, type Writable } from "svelte/store";
 
-	import {mission, player} from "$lib/current-game/game"
-
-	let position = $player.position
-	let actions = $mission.map.areas[position].actions;
+	export let player: Writable<App.Player>;
+	export let mission: Writable<App.Mission>;
+	
+	let actions = derived([mission, player], ([m, p]) => m.map.areas[p.position].actions)
 </script>
 
 <div class="block">
-	{#each actions as {name, action}}
+	{#each $actions as a}
 		<button
 			on:click={() => {
-				if (action) {
-					action();
+				if (a.action) {
+					console.log("action", a)
+					a.action(player);
 				}
-			}}>{name}</button
+			}}>{a.name}</button
 		>
 	{/each}
 </div>

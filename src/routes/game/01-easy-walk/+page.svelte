@@ -34,7 +34,7 @@
 		</div>
 		<div class="row">
 			<Basket {itemBasket} {itemsBasketName} />
-			<ActionBar />
+			<ActionBar mission={mission} player={player} />
 		</div>
 		<LoopController />
 	</div>

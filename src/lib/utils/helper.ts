@@ -55,3 +55,13 @@ export const removeActionByIndex = (player: Writable<App.Player>) => (index: num
 		return p;
 	});
 };
+
+export const setPlayerPosition = (
+	player: Writable<App.Player>,
+	position: App.Player['position']
+) => {
+	player.update((p) => {
+		p.position = position;
+		return p;
+	});
+};

@@ -3,7 +3,7 @@ import { black, collect, individualHiring, white } from "./actions";
 
 const resources = {
   "Data": { id: 1, name: "Data", volume: [] },
-  "Money": { id: 2, name: "Money", volume: 0 },
+  "Money": { id: 2, name: "Money", volume: 3000 },
   "Headhunters": { id: 3, name: "HH", volume: 0 }
 };
 
