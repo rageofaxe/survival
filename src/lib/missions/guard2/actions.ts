@@ -11,6 +11,8 @@ const HIRING_PROBABILITY = 10;
 const BLACK_MAIL_COST = 250;
 const SALARY = 750;
 
+const DD_SALARY = 15
+
 export function collect(player: Writable<App.Player>) {
   let newData: Data[] = [...Array(random(10, 100))].map((x, i) => i).map((
     x,
@@ -29,9 +31,9 @@ export function collect(player: Writable<App.Player>) {
       ...newData,
     ];
     if (state.resources["Data"].volume.length > 500) {
-      (state.resources["Money"].volume as number) -= 15;
+      (state.resources["Money"].volume as number) -= DD_SALARY;
       player.update((p) => {
-        p.money += 15;
+        p.money += DD_SALARY;
         return p;
       });
     }

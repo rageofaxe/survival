@@ -1,5 +1,5 @@
 import { repeat, tail } from "ramda";
-import { derived, type Readable, type Writable } from "svelte/store";
+import { derived, get, type Readable, type Writable } from "svelte/store";
 
 export const getTime = (mission: Writable<App.Mission>): Readable<string> => derived(mission, (mission) => `${Math.floor(mission.time / 8)}D ${mission.time % 8}H`);
 
@@ -36,4 +36,12 @@ export const addAction = (player: Writable<App.Player>) => (action: App.Action) 
         }
         return p;
     });
+}
+
+export const setPlayerPosition = (player: Writable<App.Player>, position: App.Player["position"]) => {
+    console.log("set1", get(player), position)
+    player.update(p => {
+        p.position = position
+        return p
+    })
 }

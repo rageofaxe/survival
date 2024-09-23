@@ -76,4 +76,6 @@ export const player = writable<App.Player>({
     size: 2,
     actions: [],
   },
+  money: 0,
+  name: ""
 });

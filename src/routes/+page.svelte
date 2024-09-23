@@ -3,6 +3,7 @@
 	import { load } from '$lib/current-game/game';
 	import * as guard from '$lib/missions/guard/store';
 	import * as guard2 from '$lib/missions/guard2/store';
+	import * as quake from '$lib/missions/quake/store';
 	import * as easyWalk from '$lib/missions/easy-walk/store';
 
 	function selectGuard() {
@@ -22,12 +23,19 @@
 		load(player, mission);
 		goto('/game/01-easy-walk');
 	}
+
+	function selectQuake() {
+		const { player1, mission } = quake;
+		load(player1, mission);
+		goto('/game/quake');
+	}
 </script>
 
 <div class="container">
 	<button on:click={selectGuard}>Guard</button>
 	<button on:click={selectGuard2}>Guard2</button>
 	<button on:click={selectEasyWalk}>Easy walk</button>
+	<button on:click={selectQuake}>Quake</button>
 </div>
 
 <style>
