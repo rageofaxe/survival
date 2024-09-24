@@ -17,11 +17,9 @@
 		getTime
 	} from '$lib/utils/helper';
 	import { load, mission, player } from '$lib/current-game/game';
-	import * as guard from '$lib/missions/guard/store';
 	import { onMount } from 'svelte';
 
 	onMount(async () => {
-		console.log('>>>');
 		await load(player, mission);
 	});
 
