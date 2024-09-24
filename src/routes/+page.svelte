@@ -36,6 +36,11 @@
 		load(player1, mission);
 		goto('/game/de_aztec');
 	}
+
+	function selectFrontline() {
+		
+		goto('/game/frontline');
+	}
 </script>
 
 <div class="container">
@@ -44,6 +49,7 @@
 	<button on:click={selectEasyWalk}>Easy walk</button>
 	<button on:click={selectQuake}>Quake</button>
 	<button on:click={selectDeAztec}>de_aztec</button>
+	<button on:click={selectFrontline}>Frontline</button>
 </div>
 
 <style>
