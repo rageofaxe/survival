@@ -6,6 +6,7 @@
 	import * as quake from '$lib/missions/quake/store';
 	import * as deAztec from '$lib/missions/de_aztec/store';
 	import * as easyWalk from '$lib/missions/easy-walk/store';
+	import * as principality from '$lib/missions/principality/store';
 
 	function selectGuard() {
 		const { player, mission } = guard;
@@ -36,6 +37,12 @@
 		load(player1, mission);
 		goto('/game/de_aztec');
 	}
+
+	function selectPrincipality() {
+		const { player, mission } = principality;
+		load(player, mission);
+		goto('/game/principality');
+	}
 </script>
 
 <div class="container">
@@ -44,6 +51,7 @@
 	<button on:click={selectEasyWalk}>Easy walk</button>
 	<button on:click={selectQuake}>Quake</button>
 	<button on:click={selectDeAztec}>de_aztec</button>
+	<button on:click={selectPrincipality}>Principality</button>
 </div>
 
 <style>
