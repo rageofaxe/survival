@@ -43,6 +43,10 @@
 		load(player, mission);
 		goto('/game/principality');
 	}
+
+	function selectFrontline() {
+		goto('/game/frontline');
+	}
 </script>
 
 <div class="container">
@@ -52,6 +56,7 @@
 	<button on:click={selectQuake}>Quake</button>
 	<button on:click={selectDeAztec}>de_aztec</button>
 	<button on:click={selectPrincipality}>Principality</button>
+	<button on:click={selectFrontline}>Frontline</button>
 </div>
 
 <style>
