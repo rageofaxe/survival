@@ -3,6 +3,7 @@ export namespace Game {
 		name: string;
 		population: number;
 		type: 'Castle' | 'Village';
+		position: [number, number];
 	};
 
 	export type Player = App.Player & {

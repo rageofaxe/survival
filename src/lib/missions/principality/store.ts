@@ -10,12 +10,26 @@ export const settlements: Game.Settlement[] = [
 	{
 		population: 1352,
 		name: 'Castle 1',
-		type: 'Castle'
+		type: 'Castle',
+		position: [3, 3]
 	},
 	{
 		population: 251,
 		name: 'Village',
-		type: 'Village'
+		type: 'Village',
+		position: [4, 5]
+	},
+	{
+		population: 153,
+		name: 'Vilaribo',
+		type: 'Village',
+		position: [1, 1]
+	},
+	{
+		population: 342,
+		name: 'Krasnaje',
+		type: 'Village',
+		position: [5, 1]
 	}
 ];
 
