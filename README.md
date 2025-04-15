@@ -55,7 +55,7 @@ You can preview the production build with `npm run preview`.
 
 - .row
 
-- .block
+- .bordered-block
 
 ## CSS modifiers classes
 
