@@ -5,7 +5,7 @@
 	export let addAction: (action: App.Action) => void;
 </script>
 
-<div class="block">
+<div class="bordered-block">
 	{#each $areaActions as a}
 		<button
 			on:click={() => {

@@ -4,12 +4,12 @@
 </script>
 
 <div class="container">
-	<div class="flex">
+	<div class="column">
 		<StatusBar time={writable('')} resources={writable('')} />
 	</div>
 	<br />
 
-	<div class="block">
+	<div class="bordered-block">
 		<div class="row">
 			<button>-</button><span class="l">Sector A (0)</span><button>+</button>
 		</div>
@@ -31,7 +31,7 @@
         
 	</div>
     <br />
-    <div class="block">
+    <div class="bordered-block">
 		<div class="row">
 			<button>-</button><span class="l">Sector A (0)</span><button>+</button>
 		</div>

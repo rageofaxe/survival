@@ -42,7 +42,7 @@
 </script>
 
 <div class="container">
-	<div class="flex">
+	<div class="column">
 		<StatusBar {time} {resources} />
 		<div class="row">
 			<Description {areaDescription} />

@@ -6,7 +6,7 @@
 	export let areaDescription: Readable<string>;
 </script>
 
-<div class="block">
+<div class="bordered-block">
 	{#if shown}
 		<span class="">
 			<pre>{$areaDescription}</pre>

@@ -36,3 +36,31 @@ npm run build
 You can preview the production build with `npm run preview`.
 
 > To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+
+# UI
+
+## \<h1> \<h2> \<h3>
+
+## \<select>
+
+## \<button>
+
+## \<span>
+
+## \<pre>
+
+## CSS Classes (need to create components)
+
+- .column
+
+- .row
+
+- .block
+
+## CSS modifiers classes
+
+### Typography
+
+- .l { font-size: 20px }
+
+- .m { font-size: 16px }

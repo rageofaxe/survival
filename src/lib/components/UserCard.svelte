@@ -5,7 +5,7 @@
     let money = derived(player, p => p.money)
     let result = derived(player, p => p.result)
 </script>
-<div class="block">
+<div class="bordered-block">
     <span class="m">{$player.name}</span>
     <span class="">Money: {$money}</span>
     {#if $result}

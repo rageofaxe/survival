@@ -5,7 +5,7 @@
     export let itemsBasketName: Readable<string>;
 </script>
 
-<div class="block">
+<div class="bordered-block">
     <span class="l">{$itemsBasketName}</span>
     <div class="row-1">
         {#each $itemBasket as cell}

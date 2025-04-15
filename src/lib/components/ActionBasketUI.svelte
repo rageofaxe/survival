@@ -5,8 +5,8 @@
 	export let removeActionByIndex;
 </script>
 
-<div class="block">
-	<div class="flex">
+<div class="bordered-block">
+	<div class="column">
 		<span class="l"
 			>{$actionBasket.name} (size: {$actionBasket?.actions.length} / {$actionBasket.size})</span
 		>

@@ -7,7 +7,7 @@
 	let actions = derived([mission, player], ([m, p]) => m.map.areas[p.position].actions)
 </script>
 
-<div class="block">
+<div class="bordered-block">
 	{#each $actions as a}
 		<button
 			on:click={() => {

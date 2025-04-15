@@ -47,6 +47,10 @@
 	function selectFrontline() {
 		goto('/game/frontline');
 	}
+
+	function selectCSMacro() {
+		goto('/game/cs-macro');
+	}
 </script>
 
 <div class="container">
@@ -57,6 +61,7 @@
 	<button on:click={selectDeAztec}>de_aztec</button>
 	<button on:click={selectPrincipality}>Principality</button>
 	<button on:click={selectFrontline}>Frontline</button>
+	<button on:click={selectCSMacro}>CS Macro</button>
 </div>
 
 <style>

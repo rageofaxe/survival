@@ -11,7 +11,7 @@
 </script>
 
 <div class="row">
-	<div class="block">
+	<div class="bordered-block">
 		<div class="justify-between">
 			<span class="">{$resources}</span>
 			<span class="">{$time}</span>

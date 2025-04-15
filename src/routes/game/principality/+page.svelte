@@ -23,10 +23,10 @@
 </script>
 
 <div class="container">
-	<div class="flex">
+	<div class="column">
 		<StatusBar {time} {resources} />
 		<div class="row">
-			<div class="block" style="background: white">
+			<div class="bordered-block" style="background: white">
 				<!-- <img src={mapImg} alt="map" width="300" /> -->
 				{#each { length: 12 } as r, i}
 					<div class="row">
@@ -51,7 +51,7 @@
 					</div>
 				{/each}
 			</div>
-			<div class="block" />
+			<div class="bordered-block" />
 		</div>
 	</div>
 </div>
