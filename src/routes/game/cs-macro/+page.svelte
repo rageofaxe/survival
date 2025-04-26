@@ -4,12 +4,24 @@
 	import dust2 from '$lib/assets/pr/dust2.png';
 
 	let players = [
-		{ title: 'alpha', health: 100, armor: 50, weapon: 'AK-74', frags: 3, death: 1 },
+		{
+			title: 'alpha',
+			health: 100,
+			armor: 50,
+			weapon: 'AK-74',
+			frags: 3,
+			death: 1,
+			ammo: 30,
+			totalAmmo: 90,
+			attention: 100
+		},
 		{ title: 'bravo' },
 		{ title: 'charlie' },
 		{ title: 'delta' },
 		{ title: 'echo' }
 	];
+
+	let mapSize = 400
 </script>
 
 <div class="container">
@@ -20,8 +32,16 @@
 
 	<div class="bordered-block">
 		<div class="row">
-			
-				<img alt="" src={dust2} height="400" width="400" />
+			<img alt="" src={dust2} height={mapSize} width={mapSize} />
+
+			<label
+				>Map size
+				<select bind:value={mapSize}>
+					<option value={400}>Small</option>
+					<option value={600}>Medium</option>
+					<option value={800}>Big</option>
+				</select>
+			</label>
 			
 			<div class="column">
 				<span>Alpha drop the bomb</span>
@@ -37,22 +57,24 @@
 			{#each players as player}
 				<div class="column">
 					<h3>{player.title}</h3>
-					<span>Weapon: {player.weapon}</span>
+					<span>Weapon: {player.weapon} ({player.ammo} / {player.totalAmmo})</span>
 					<span>Money: 500$</span>
 					<span>Health and Armor: {player.health} / {player.armor}</span>
 					<span>Frags and death: {player.frags} / {player.death}</span>
 					<select>
 						<option>Stay here</option>
+						<option>Reload</option>
 						<option>Go to #Box1</option>
 						<option>Go to #Box2</option>
 						<option>Go to #Hole1</option>
 						<option>Go to #Hole5</option>
-						
 					</select>
 				</div>
 			{/each}
 		</div>
 	</div>
+	<br />
+
 </div>
 
 <style>

@@ -64,3 +64,7 @@ You can preview the production build with `npm run preview`.
 - .l { font-size: 20px }
 
 - .m { font-size: 16px }
+
+# Types
+
+
